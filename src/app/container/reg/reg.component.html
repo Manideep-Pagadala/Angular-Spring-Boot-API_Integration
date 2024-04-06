@@ -1,0 +1,71 @@
+<div class="container my-5">
+    <div class="card-container mx-auto my-2">
+        <div class="row-container row shadow text-secondary">
+            <div class="col form-container ">
+                <form method="post" class="custom-form" [formGroup]="regform" #myregform="ngForm" (submit)="reg()">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" formControlName="empName" placeholder="" name="empName"
+                            [ngClass]="{'is-invalid':isSubmit&&con.empName.errors}" required>
+                        <label for="name" class="form-label"><span class="text-danger">*</span>User Name</label>
+                        <span *ngIf="con.empName.errors?.required && isSubmit" class="text-danger">
+                            User name should not be empty...!</span>
+                        <span *ngIf="con.empName.errors?.minlength && isSubmit" class="text-danger">
+                            User name must contain 5 chars..</span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="email" class="form-control" formControlName="email" placeholder="" name="email"
+                            [ngClass]="{'is-invalid':isSubmit&&con.email.errors}" required>
+                        <label for="name" class="form-label"><span class="text-danger">*</span>Email</label>
+                        <span *ngIf="isSubmit&&con.email.errors?.required" class="text-danger">Email should not be
+                            empty...!</span>
+                        <span *ngIf="isSubmit&&con.email.errors?.email" class="text-danger">Please fallow email
+                            pattern..</span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="email" class="form-control" formControlName="pwd" placeholder="" name="pwd"
+                            [ngClass]="{'is-invalid':isSubmit&&con.pwd.errors}" required>
+                        <label for="pwd" class="form-label"><span class="text-danger">*</span>Password</label>
+                        <span *ngIf="isSubmit&&con.pwd.errors?.required" class="text-danger">Password should not be empty...!</span>
+                        <span *ngIf="isSubmit&&con.pwd.errors?.pattern" class="text-danger">Fallow pattern Xxxx..</span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="date" class="form-control" formControlName="doj" placeholder="" name="doj"
+                            [ngClass]="{'is-invalid':isSubmit&&con.doj.errors}" required>
+                        <label for="doj" class="form-label"><span class="text-danger">*</span>DOJ</label>
+                        <span *ngIf="isSubmit&&con.doj.errors" class="text-danger">DOJ should be required...!</span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="number" class="form-control" formControlName="phno" placeholder="" name="phno"
+                            [ngClass]="{'is-invalid':isSubmit&&con.phno.errors}" required>
+                        <label for="phno" class="form-label"><span class="text-danger">*</span>Phone no</label>
+                        <span *ngIf="isSubmit&&con.phno.errors?.required" class="text-danger">Phone num should not be empty...!</span>
+                        <span *ngIf="isSubmit&&con.phno.errors?.minlength" class="text-danger">Phone num should contain 10 digits...!</span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="number" class="form-control" formControlName="sal" placeholder="" name="sal"
+                            [ngClass]="{'is-invalid':isSubmit&&con.sal.errors}">
+                        <label for="phno" class="form-label">Salary</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" formControlName="city" placeholder="" name="city"
+                            [ngClass]="{'is-invalid':isSubmit&&con.city.errors}" required>
+                        <label for="phno" class="form-label"><span class="text-danger">*</span>City</label>
+                        <span *ngIf="isSubmit&&con.city.errors" class="text-danger">City should be required...!</span>
+                    </div>
+
+                    <div class="my-4 text-center">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                    <div class="text-center">
+                        Do you have an account? <a routerLink="/login" class="btn btn-outline-danger">Login here</a>
+                    </div>
+                </form>
+            </div>
+            <div
+                class="col text-container text-center d-flex flex-column justify-content-center align-items-center text-light">
+                <h2>Registration form</h2><br>
+                <p> Register with valid credentials and Kindly check your Mail for password</p>
+            </div>
+        </div>
+    </div>
+</div>

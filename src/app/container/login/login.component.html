@@ -1,0 +1,37 @@
+<div class="container my-5">
+    <div class="card-container mx-auto my-2">
+        <div class="row-container row shadow text-secondary">
+            <div class="col form-container ">
+                <form method="post" class="custom-form" [formGroup]="logform" #mylogform="ngForm" (submit)="login()">
+
+                    <div class="mb-3 form-floating">
+                        <input type="email" class="form-control" formControlName="email" placeholder="" name="email"
+                            [ngClass]="{'is-invalid':isSubmit&&con.email.errors}" required>
+                        <label for="name" class="form-label"><span class="text-danger">*</span>Email</label>
+                        <span *ngIf="isSubmit&&con.email.errors?.required" class="text-danger">Email should not be
+                            empty...!</span>
+                        
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="email" class="form-control" formControlName="pwd" placeholder="" name="pwd"
+                            [ngClass]="{'is-invalid':isSubmit&&con.pwd.errors}" required>
+                        <label for="pwd" class="form-label"><span class="text-danger">*</span>Password</label>
+                        <span *ngIf="isSubmit&&con.pwd.errors?.required" class="text-danger">Password should not be
+                            empty...!</span>
+                    </div>
+                    <div class="my-4 text-center">
+                        <button type="submit" class="btn btn-primary" [disabled]="mylogform.invalid">Login</button>
+                    </div>
+                    <div class="text-center">
+                        Dont you have an account? <a routerLink="/reg" class="btn btn-outline-danger">Register here</a>
+                    </div>
+                </form>
+            </div>
+            <div
+                class="col text-container text-center d-flex flex-column justify-content-center align-items-center text-light">
+                <h2>Login form</h2><br>
+                <p> Login with valid credentials and Enjoy our services...!</p>
+            </div>
+        </div>
+    </div>
+</div>
